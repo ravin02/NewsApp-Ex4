@@ -13,8 +13,15 @@ import java.util.stream.Collectors;
 
 public class AppController {
     private List<Article> articles;
+    private static AppController instance = null;
 
-    public AppController() {}
+    private AppController() {}
+    public static AppController getInstance(){
+        if (instance==null){
+            instance = new AppController();
+        }
+        return instance;
+    }
 
     public void setArticles(List<Article> articles){
         this.articles = articles;
@@ -33,6 +40,9 @@ public class AppController {
         List<String> urls = new ArrayList<>();
 
         // TODO extract urls from articles with java stream
+        articles.stream()
+                .map(Article::getUrl)
+                .collect(Collectors.toList());
 
         return downloader.process(urls);
     }
