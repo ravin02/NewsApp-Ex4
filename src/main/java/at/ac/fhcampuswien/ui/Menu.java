@@ -76,7 +76,7 @@ public class Menu {
     private void getCountArticlesNYTimes() {
         try {
             System.out.println(controller.getCountArticlesNYTimes());
-        } catch (NullPointerException e) {
+        } catch (NewsAPIException e) {
             System.out.println(e.getMessage());
         }
     }
