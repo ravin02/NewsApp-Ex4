@@ -23,6 +23,8 @@ public class Menu {
         } while(!input.equals("q"));
     }
 
+
+
     private void handleInput(String input){
         switch (input) {
             case "a" -> getTopHeadlinesAustria(controller);
@@ -74,7 +76,7 @@ public class Menu {
     private void getCountArticlesNYTimes() {
         try {
             System.out.println(controller.getCountArticlesNYTimes());
-        } catch (NewsAPIException e) {
+        } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
     }
